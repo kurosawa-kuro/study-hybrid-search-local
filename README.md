@@ -89,7 +89,7 @@
 
 2. ヘルスチェック
 
-	make health
+	make ops-livez
 
 3. 初期セットアップ（一括）
 
@@ -97,9 +97,9 @@
 
 4. 基本動作確認
 
-	make search-check
-	make feedback-check
-	make ranking-check
+	make ops-search
+	make ops-feedback
+	make ops-ranking
 
 5. 定常運用
 
@@ -113,7 +113,7 @@
 補足:
 
 - 新規運用は責務ベースターゲット（`search-sync`, `features-daily`, `training-fit` など）を使用
-- `make verify-pipeline` は `health` / `search-check` / `feedback-check` / `ranking-check` / `ranking-check-verbose` / `eval-compare` / `eval-offline` を順に実行します
+- `make verify-pipeline` は `ops-livez` / `ops-search` / `ops-feedback` / `ops-ranking` / `ops-ranking-verbose` / `eval-compare` / `eval-offline` を順に実行します
 - `src` 配下の構成変更やブランチ切替後に API コンテナが古いイメージを参照していると、`src.jobs...` などの import で失敗することがあります。その場合は次を実行して API イメージを再作成してください
 
 	docker compose build api
