@@ -3,7 +3,7 @@
 src/ ディレクトリの命名規則統一スクリプト
 技術名ベース → 責務ベースへリネーム
 
-実行: python scripts/rename_structure.py
+実行: python scripts/setup/rename_structure.py
 """
 
 from __future__ import annotations

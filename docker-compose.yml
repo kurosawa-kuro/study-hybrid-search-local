@@ -7,7 +7,7 @@ services:
       - "${API_PORT:-8000}:8000"
     volumes:
       - ./src:/app/src
-    # POSTGRES_PASSWORD は scripts/compose.sh が credential.yaml から shell env に export する
+    # POSTGRES_PASSWORD は scripts/setup/compose.sh が credential.yaml から shell env に export する
     # その他の変数は src/ 側で os.getenv("...", "<default>") のフォールバックに任せる
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}

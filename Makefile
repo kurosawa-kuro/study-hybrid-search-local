@@ -3,7 +3,7 @@
 PYTHON := $(if $(wildcard .venv/bin/python),.venv/bin/python,$(if $(wildcard ../.venv/bin/python),../.venv/bin/python,python3))
 
 # docker compose を直接呼ばず、env/secret/credential.yaml を読み込むラッパー経由で起動する
-DOCKER_COMPOSE ?= ./scripts/compose.sh
+DOCKER_COMPOSE ?= ./scripts/setup/compose.sh
 
 .PHONY: \
 	help up build down logs test sync api-refresh \
@@ -40,7 +40,7 @@ test: ## Run pytest (local)
 	$(PYTHON) -m pytest tests/ -v
 
 check-layers: ## Enforce layer boundaries by AST (stage=5)
-	$(PYTHON) scripts/check_layers.py --stage 5
+	$(PYTHON) scripts/checks/layers.py --stage 5
 
 api-refresh: ## Rebuild and recreate only the api service
 	$(DOCKER_COMPOSE) build api
